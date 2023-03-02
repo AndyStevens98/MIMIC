@@ -1,0 +1,9 @@
+concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,standard_concept,concept_code,valid_start_date,valid_end_date,invalid_reason
+2000001501,DIVORCED,Meas Value,mimiciv_obs_marital,Answer,,DIVORCED,1970-01-01,2099-12-31,
+2000001502,LIFE PARTNER,Meas Value,mimiciv_obs_marital,Answer,,LIFE PARTNER,1970-01-01,2099-12-31,
+2000001503,MARRIED,Meas Value,mimiciv_obs_marital,Answer,,MARRIED,1970-01-01,2099-12-31,
+2000001504,SEPARATED,Meas Value,mimiciv_obs_marital,Answer,,SEPARATED,1970-01-01,2099-12-31,
+2000001505,SINGLE,Meas Value,mimiciv_obs_marital,Answer,,SINGLE,1970-01-01,2099-12-31,
+2000001506,UNKNOWN (DEFAULT),Meas Value,mimiciv_obs_marital,Answer,,UNKNOWN (DEFAULT),1970-01-01,2099-12-31,
+2000001507,WIDOWED,Meas Value,mimiciv_obs_marital,Answer,,WIDOWED,1970-01-01,2099-12-31,
+2000001521,ENGLISH,Observation,mimiciv_obs_language,Qualifier Value,,ENGLISH,1970-01-01,2099-12-31,

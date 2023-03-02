@@ -1,0 +1,9 @@
+concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,standard_concept,concept_code,valid_start_date,valid_end_date,invalid_reason
+2000001401,UNKNOWN,Race,mimiciv_per_ethnicity,Race,,UNKNOWN,1970-01-01,2099-12-31,
+2000001402,OTHER,Race,mimiciv_per_ethnicity,Race,,OTHER,1970-01-01,2099-12-31,
+2000001403,ASIAN,Race,mimiciv_per_ethnicity,Race,,ASIAN,1970-01-01,2099-12-31,
+2000001404,WHITE,Race,mimiciv_per_ethnicity,Race,,WHITE,1970-01-01,2099-12-31,
+2000001405,UNABLE TO OBTAIN,Race,mimiciv_per_ethnicity,Race,,UNABLE TO OBTAIN,1970-01-01,2099-12-31,
+2000001406,BLACK/AFRICAN AMERICAN,Race,mimiciv_per_ethnicity,Race,,BLACK/AFRICAN AMERICAN,1970-01-01,2099-12-31,
+2000001407,AMERICAN INDIAN/ALASKA NATIVE,Race,mimiciv_per_ethnicity,Race,,AMERICAN INDIAN/ALASKA NATIVE,1970-01-01,2099-12-31,
+2000001408,HISPANIC/LATINO,Ethnicity,mimiciv_per_ethnicity,Ethnicity,,HISPANIC/LATINO,1970-01-01,2099-12-31,

@@ -1,0 +1,731 @@
+pg_restore: entering main parallel loop
+pg_restore: launching item 3513 TABLE DATA note
+pg_restore: launching item 3511 TABLE DATA measurement
+pg_restore: launching item 3550 TABLE DATA concept_relationship
+pg_restore: launching item 3534 TABLE DATA concept_ancestor
+pg_restore: launching item 3540 TABLE DATA observation
+pg_restore: launching item 3539 TABLE DATA concept
+pg_restore: launching item 3541 TABLE DATA drug_exposure
+pg_restore: launching item 3508 TABLE DATA condition_occurrence
+pg_restore: finished item 3541 TABLE DATA drug_exposure
+pg_restore: launching item 3179 INDEX idx_drug_concept_id_1
+pg_restore: creating INDEX "public.idx_drug_concept_id_1"
+pg_restore: finished item 3508 TABLE DATA condition_occurrence
+pg_restore: launching item 3180 INDEX idx_drug_person_id_1
+pg_restore: creating INDEX "public.idx_drug_person_id_1"
+pg_restore: finished item 3534 TABLE DATA concept_ancestor
+pg_restore: launching item 3157 INDEX idx_concept_ancestor_id_1
+pg_restore: creating INDEX "public.idx_concept_ancestor_id_1"
+pg_restore: finished item 3539 TABLE DATA concept
+pg_restore: launching item 3158 INDEX idx_concept_ancestor_id_2
+pg_restore: creating INDEX "public.idx_concept_ancestor_id_2"
+pg_restore: finished item 3179 INDEX idx_drug_concept_id_1
+pg_restore: launching item 3168 CONSTRAINT concept concept_new_pk
+pg_restore: creating CONSTRAINT "public.concept concept_new_pk"
+pg_restore: finished item 3180 INDEX idx_drug_person_id_1
+pg_restore: launching item 3181 INDEX idx_drug_visit_id_1
+pg_restore: creating INDEX "public.idx_drug_visit_id_1"
+pg_restore: finished item 3540 TABLE DATA observation
+pg_restore: launching item 3174 INDEX idx_observation_concept_id_1
+pg_restore: creating INDEX "public.idx_observation_concept_id_1"
+pg_restore: finished item 3181 INDEX idx_drug_visit_id_1
+pg_restore: launching item 3175 INDEX idx_observation_person_id_1
+pg_restore: creating INDEX "public.idx_observation_person_id_1"
+pg_restore: finished item 3174 INDEX idx_observation_concept_id_1
+pg_restore: launching item 3176 INDEX idx_observation_visit_id_1
+pg_restore: creating INDEX "public.idx_observation_visit_id_1"
+pg_restore: finished item 3550 TABLE DATA concept_relationship
+pg_restore: launching item 3192 CONSTRAINT concept_relationship concept_relationship_pk
+pg_restore: creating CONSTRAINT "public.concept_relationship concept_relationship_pk"
+pg_restore: finished item 3176 INDEX idx_observation_visit_id_1
+pg_restore: launching item 3183 CONSTRAINT drug_exposure xpk_drug_exposure
+pg_restore: creating CONSTRAINT "public.drug_exposure xpk_drug_exposure"
+pg_restore: finished item 3175 INDEX idx_observation_person_id_1
+pg_restore: launching item 3178 CONSTRAINT observation xpk_observation
+pg_restore: creating CONSTRAINT "public.observation xpk_observation"
+pg_restore: finished item 3158 INDEX idx_concept_ancestor_id_2
+pg_restore: launching item 3074 INDEX idx_condition_concept_id_1
+pg_restore: creating INDEX "public.idx_condition_concept_id_1"
+pg_restore: finished item 3157 INDEX idx_concept_ancestor_id_1
+pg_restore: launching item 3075 INDEX idx_condition_person_id_1
+pg_restore: creating INDEX "public.idx_condition_person_id_1"
+pg_restore: finished item 3178 CONSTRAINT observation xpk_observation
+pg_restore: launching item 3076 INDEX idx_condition_visit_id_1
+pg_restore: creating INDEX "public.idx_condition_visit_id_1"
+pg_restore: finished item 3074 INDEX idx_condition_concept_id_1
+pg_restore: launching item 3516 TABLE DATA fact_relationship
+pg_restore: processing data for table "public.fact_relationship"
+pg_restore: finished item 3516 TABLE DATA fact_relationship
+pg_restore: launching item 3109 INDEX idx_fact_relationship_id1
+pg_restore: creating INDEX "public.idx_fact_relationship_id1"
+pg_restore: finished item 3076 INDEX idx_condition_visit_id_1
+pg_restore: launching item 3110 INDEX idx_fact_relationship_id2
+pg_restore: creating INDEX "public.idx_fact_relationship_id2"
+pg_restore: finished item 3075 INDEX idx_condition_person_id_1
+pg_restore: launching item 3078 CONSTRAINT condition_occurrence xpk_condition_occurrence
+pg_restore: creating CONSTRAINT "public.condition_occurrence xpk_condition_occurrence"
+pg_restore: finished item 3109 INDEX idx_fact_relationship_id1
+pg_restore: launching item 3111 INDEX idx_fact_relationship_id3
+pg_restore: creating INDEX "public.idx_fact_relationship_id3"
+pg_restore: finished item 3078 CONSTRAINT condition_occurrence xpk_condition_occurrence
+pg_restore: launching item 3506 TABLE DATA visit_occurrence
+pg_restore: processing data for table "public.visit_occurrence"
+pg_restore: finished item 3110 INDEX idx_fact_relationship_id2
+pg_restore: launching item 3507 TABLE DATA visit_detail
+pg_restore: processing data for table "public.visit_detail"
+pg_restore: finished item 3506 TABLE DATA visit_occurrence
+pg_restore: launching item 3065 INDEX idx_visit_concept_id_1
+pg_restore: creating INDEX "public.idx_visit_concept_id_1"
+pg_restore: finished item 3507 TABLE DATA visit_detail
+pg_restore: launching item 3066 INDEX idx_visit_person_id_1
+pg_restore: creating INDEX "public.idx_visit_person_id_1"
+pg_restore: finished item 3111 INDEX idx_fact_relationship_id3
+pg_restore: launching item 3069 INDEX idx_visit_det_concept_id_1
+pg_restore: creating INDEX "public.idx_visit_det_concept_id_1"
+pg_restore: finished item 3065 INDEX idx_visit_concept_id_1
+pg_restore: launching item 3070 INDEX idx_visit_det_occ_id
+pg_restore: creating INDEX "public.idx_visit_det_occ_id"
+pg_restore: finished item 3066 INDEX idx_visit_person_id_1
+pg_restore: launching item 3068 CONSTRAINT visit_occurrence xpk_visit_occurrence
+pg_restore: creating CONSTRAINT "public.visit_occurrence xpk_visit_occurrence"
+pg_restore: finished item 3069 INDEX idx_visit_det_concept_id_1
+pg_restore: launching item 3071 INDEX idx_visit_det_person_id_1
+pg_restore: creating INDEX "public.idx_visit_det_person_id_1"
+pg_restore: finished item 3068 CONSTRAINT visit_occurrence xpk_visit_occurrence
+pg_restore: launching item 3361 FK CONSTRAINT observation fpk_observation_visit_occurrence_id
+pg_restore: creating FK CONSTRAINT "public.observation fpk_observation_visit_occurrence_id"
+pg_restore: finished item 3070 INDEX idx_visit_det_occ_id
+pg_restore: launching item 3515 TABLE DATA specimen
+pg_restore: processing data for table "public.specimen"
+pg_restore: finished item 3071 INDEX idx_visit_det_person_id_1
+pg_restore: launching item 3073 CONSTRAINT visit_detail xpk_visit_detail
+pg_restore: creating CONSTRAINT "public.visit_detail xpk_visit_detail"
+pg_restore: finished item 3515 TABLE DATA specimen
+pg_restore: launching item 3105 INDEX idx_specimen_concept_id_1
+pg_restore: creating INDEX "public.idx_specimen_concept_id_1"
+pg_restore: finished item 3073 CONSTRAINT visit_detail xpk_visit_detail
+pg_restore: launching item 3234 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_visit_detail_id
+pg_restore: creating FK CONSTRAINT "public.condition_occurrence fpk_condition_occurrence_visit_detail_id"
+pg_restore: finished item 3105 INDEX idx_specimen_concept_id_1
+pg_restore: launching item 3106 INDEX idx_specimen_person_id_1
+pg_restore: creating INDEX "public.idx_specimen_person_id_1"
+pg_restore: finished item 3106 INDEX idx_specimen_person_id_1
+pg_restore: launching item 3108 CONSTRAINT specimen xpk_specimen
+pg_restore: creating CONSTRAINT "public.specimen xpk_specimen"
+pg_restore: finished item 3234 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_visit_detail_id
+pg_restore: launching item 3220 FK CONSTRAINT visit_detail fpk_visit_detail_parent_visit_detail_id
+pg_restore: creating FK CONSTRAINT "public.visit_detail fpk_visit_detail_parent_visit_detail_id"
+pg_restore: finished item 3192 CONSTRAINT concept_relationship concept_relationship_pk
+pg_restore: launching item 3536 TABLE DATA drug_strength
+pg_restore: processing data for table "public.drug_strength"
+pg_restore: finished item 3536 TABLE DATA drug_strength
+pg_restore: launching item 3163 INDEX idx_drug_strength_id_1
+pg_restore: creating INDEX "public.idx_drug_strength_id_1"
+pg_restore: finished item 3108 CONSTRAINT specimen xpk_specimen
+pg_restore: launching item 3164 INDEX idx_drug_strength_id_2
+pg_restore: creating INDEX "public.idx_drug_strength_id_2"
+pg_restore: finished item 3220 FK CONSTRAINT visit_detail fpk_visit_detail_parent_visit_detail_id
+pg_restore: launching item 3222 FK CONSTRAINT visit_detail fpk_visit_detail_preceding_visit_detail_id
+pg_restore: creating FK CONSTRAINT "public.visit_detail fpk_visit_detail_preceding_visit_detail_id"
+pg_restore: finished item 3222 FK CONSTRAINT visit_detail fpk_visit_detail_preceding_visit_detail_id
+pg_restore: launching item 3509 TABLE DATA procedure_occurrence
+pg_restore: processing data for table "public.procedure_occurrence"
+pg_restore: finished item 3164 INDEX idx_drug_strength_id_2
+pg_restore: launching item 3542 TABLE DATA f_person
+pg_restore: processing data for table "public.f_person"
+pg_restore: finished item 3163 INDEX idx_drug_strength_id_1
+pg_restore: launching item 3510 TABLE DATA device_exposure
+pg_restore: processing data for table "public.device_exposure"
+pg_restore: finished item 3542 TABLE DATA f_person
+pg_restore: launching item 3551 TABLE DATA concept_icd
+pg_restore: processing data for table "public.concept_icd"
+pg_restore: finished item 3551 TABLE DATA concept_icd
+pg_restore: launching item 3194 CONSTRAINT concept_icd concept_icd_new_pk
+pg_restore: creating CONSTRAINT "public.concept_icd concept_icd_new_pk"
+pg_restore: finished item 3510 TABLE DATA device_exposure
+pg_restore: launching item 3251 FK CONSTRAINT device_exposure fpk_device_exposure_visit_detail_id
+pg_restore: creating FK CONSTRAINT "public.device_exposure fpk_device_exposure_visit_detail_id"
+pg_restore: finished item 3194 CONSTRAINT concept_icd concept_icd_new_pk
+pg_restore: launching item 3195 INDEX idx_concept_icd_concept_id
+pg_restore: creating INDEX "public.idx_concept_icd_concept_id"
+pg_restore: finished item 3511 TABLE DATA measurement
+pg_restore: launching item 3089 INDEX idx_measurement_concept_id_1
+pg_restore: creating INDEX "public.idx_measurement_concept_id_1"
+pg_restore: finished item 3361 FK CONSTRAINT observation fpk_observation_visit_occurrence_id
+pg_restore: launching item 3090 INDEX idx_measurement_person_id_1
+pg_restore: creating INDEX "public.idx_measurement_person_id_1"
+pg_restore: finished item 3195 INDEX idx_concept_icd_concept_id
+pg_restore: launching item 3091 INDEX idx_measurement_visit_id_1
+pg_restore: creating INDEX "public.idx_measurement_visit_id_1"
+pg_restore: finished item 3251 FK CONSTRAINT device_exposure fpk_device_exposure_visit_detail_id
+pg_restore: launching item 3092 INDEX measurement_measurement_source_value_index
+pg_restore: creating INDEX "public.measurement_measurement_source_value_index"
+pg_restore: finished item 3509 TABLE DATA procedure_occurrence
+pg_restore: launching item 3360 FK CONSTRAINT observation fpk_observation_visit_detail_id
+pg_restore: creating FK CONSTRAINT "public.observation fpk_observation_visit_detail_id"
+pg_restore: finished item 3183 CONSTRAINT drug_exposure xpk_drug_exposure
+pg_restore: launching item 3369 FK CONSTRAINT drug_exposure fpk_drug_exposure_visit_occurrence_id
+pg_restore: creating FK CONSTRAINT "public.drug_exposure fpk_drug_exposure_visit_occurrence_id"
+pg_restore: finished item 3513 TABLE DATA note
+pg_restore: launching item 3096 INDEX idx_note_concept_id_1
+pg_restore: creating INDEX "public.idx_note_concept_id_1"
+pg_restore: finished item 3369 FK CONSTRAINT drug_exposure fpk_drug_exposure_visit_occurrence_id
+pg_restore: launching item 3097 INDEX idx_note_person_id_1
+pg_restore: creating INDEX "public.idx_note_person_id_1"
+pg_restore: finished item 3360 FK CONSTRAINT observation fpk_observation_visit_detail_id
+pg_restore: launching item 3098 INDEX idx_note_visit_id_1
+pg_restore: creating INDEX "public.idx_note_visit_id_1"
+pg_restore: finished item 3168 CONSTRAINT concept concept_new_pk
+pg_restore: launching item 3351 FK CONSTRAINT observation fpk_observation_obs_event_field_concept_id
+pg_restore: creating FK CONSTRAINT "public.observation fpk_observation_obs_event_field_concept_id"
+pg_restore: finished item 3351 FK CONSTRAINT observation fpk_observation_obs_event_field_concept_id
+pg_restore: launching item 3352 FK CONSTRAINT observation fpk_observation_observation_concept_id
+pg_restore: creating FK CONSTRAINT "public.observation fpk_observation_observation_concept_id"
+pg_restore: finished item 3352 FK CONSTRAINT observation fpk_observation_observation_concept_id
+pg_restore: launching item 3353 FK CONSTRAINT observation fpk_observation_observation_source_concept_id
+pg_restore: creating FK CONSTRAINT "public.observation fpk_observation_observation_source_concept_id"
+pg_restore: finished item 3353 FK CONSTRAINT observation fpk_observation_observation_source_concept_id
+pg_restore: launching item 3354 FK CONSTRAINT observation fpk_observation_observation_type_concept_id
+pg_restore: creating FK CONSTRAINT "public.observation fpk_observation_observation_type_concept_id"
+pg_restore: finished item 3096 INDEX idx_note_concept_id_1
+pg_restore: launching item 3368 FK CONSTRAINT drug_exposure fpk_drug_exposure_visit_detail_id
+pg_restore: creating FK CONSTRAINT "public.drug_exposure fpk_drug_exposure_visit_detail_id"
+pg_restore: finished item 3098 INDEX idx_note_visit_id_1
+pg_restore: launching item 3235 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_visit_occurrence_id
+pg_restore: creating FK CONSTRAINT "public.condition_occurrence fpk_condition_occurrence_visit_occurrence_id"
+pg_restore: finished item 3097 INDEX idx_note_person_id_1
+pg_restore: launching item 3100 CONSTRAINT note xpk_note
+pg_restore: creating CONSTRAINT "public.note xpk_note"
+pg_restore: finished item 3368 FK CONSTRAINT drug_exposure fpk_drug_exposure_visit_detail_id
+pg_restore: launching item 3242 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_visit_detail_id
+pg_restore: creating FK CONSTRAINT "public.procedure_occurrence fpk_procedure_occurrence_visit_detail_id"
+pg_restore: finished item 3242 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_visit_detail_id
+pg_restore: launching item 3079 INDEX idx_procedure_concept_id_1
+pg_restore: creating INDEX "public.idx_procedure_concept_id_1"
+pg_restore: finished item 3235 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_visit_occurrence_id
+pg_restore: launching item 3212 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_preceding_visit_occurrence_id
+pg_restore: creating FK CONSTRAINT "public.visit_occurrence fpk_visit_occurrence_preceding_visit_occurrence_id"
+pg_restore: finished item 3079 INDEX idx_procedure_concept_id_1
+pg_restore: launching item 3080 INDEX idx_procedure_person_id_1
+pg_restore: creating INDEX "public.idx_procedure_person_id_1"
+pg_restore: finished item 3080 INDEX idx_procedure_person_id_1
+pg_restore: launching item 3081 INDEX idx_procedure_visit_id_1
+pg_restore: creating INDEX "public.idx_procedure_visit_id_1"
+pg_restore: finished item 3212 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_preceding_visit_occurrence_id
+pg_restore: launching item 3227 FK CONSTRAINT visit_detail fpk_visit_detail_visit_occurrence_id
+pg_restore: creating FK CONSTRAINT "public.visit_detail fpk_visit_detail_visit_occurrence_id"
+pg_restore: finished item 3081 INDEX idx_procedure_visit_id_1
+pg_restore: launching item 3083 CONSTRAINT procedure_occurrence xpk_procedure_occurrence
+pg_restore: creating CONSTRAINT "public.procedure_occurrence xpk_procedure_occurrence"
+pg_restore: finished item 3354 FK CONSTRAINT observation fpk_observation_observation_type_concept_id
+pg_restore: launching item 3357 FK CONSTRAINT observation fpk_observation_qualifier_concept_id
+pg_restore: creating FK CONSTRAINT "public.observation fpk_observation_qualifier_concept_id"
+pg_restore: finished item 3227 FK CONSTRAINT visit_detail fpk_visit_detail_visit_occurrence_id
+pg_restore: launching item 3252 FK CONSTRAINT device_exposure fpk_device_exposure_visit_occurrence_id
+pg_restore: creating FK CONSTRAINT "public.device_exposure fpk_device_exposure_visit_occurrence_id"
+pg_restore: finished item 3083 CONSTRAINT procedure_occurrence xpk_procedure_occurrence
+pg_restore: launching item 3196 INDEX idx_concept_vocabulary_id
+pg_restore: creating INDEX "public.idx_concept_vocabulary_id"
+pg_restore: finished item 3252 FK CONSTRAINT device_exposure fpk_device_exposure_visit_occurrence_id
+pg_restore: launching item 3243 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_visit_occurrence_id
+pg_restore: creating FK CONSTRAINT "public.procedure_occurrence fpk_procedure_occurrence_visit_occurrence_id"
+pg_restore: finished item 3196 INDEX idx_concept_vocabulary_id
+pg_restore: launching item 3084 INDEX idx_device_concept_id_1
+pg_restore: creating INDEX "public.idx_device_concept_id_1"
+pg_restore: finished item 3084 INDEX idx_device_concept_id_1
+pg_restore: launching item 3085 INDEX idx_device_person_id_1
+pg_restore: creating INDEX "public.idx_device_person_id_1"
+pg_restore: finished item 3243 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_visit_occurrence_id
+pg_restore: launching item 3086 INDEX idx_device_visit_id_1
+pg_restore: creating INDEX "public.idx_device_visit_id_1"
+pg_restore: finished item 3100 CONSTRAINT note xpk_note
+pg_restore: launching item 3276 FK CONSTRAINT note fpk_note_visit_detail_id
+pg_restore: creating FK CONSTRAINT "public.note fpk_note_visit_detail_id"
+pg_restore: finished item 3357 FK CONSTRAINT observation fpk_observation_qualifier_concept_id
+pg_restore: launching item 3358 FK CONSTRAINT observation fpk_observation_unit_concept_id
+pg_restore: creating FK CONSTRAINT "public.observation fpk_observation_unit_concept_id"
+pg_restore: finished item 3086 INDEX idx_device_visit_id_1
+pg_restore: launching item 3504 TABLE DATA person
+pg_restore: processing data for table "public.person"
+pg_restore: finished item 3085 INDEX idx_device_person_id_1
+pg_restore: launching item 3088 CONSTRAINT device_exposure xpk_device_exposure
+pg_restore: creating CONSTRAINT "public.device_exposure xpk_device_exposure"
+pg_restore: finished item 3504 TABLE DATA person
+pg_restore: launching item 3058 INDEX idx_gender
+pg_restore: creating INDEX "public.idx_gender"
+pg_restore: finished item 3058 INDEX idx_gender
+pg_restore: launching item 3059 INDEX idx_person_id
+pg_restore: creating INDEX "public.idx_person_id"
+pg_restore: finished item 3358 FK CONSTRAINT observation fpk_observation_unit_concept_id
+pg_restore: launching item 3359 FK CONSTRAINT observation fpk_observation_value_as_concept_id
+pg_restore: creating FK CONSTRAINT "public.observation fpk_observation_value_as_concept_id"
+pg_restore: finished item 3276 FK CONSTRAINT note fpk_note_visit_detail_id
+pg_restore: launching item 3277 FK CONSTRAINT note fpk_note_visit_occurrence_id
+pg_restore: creating FK CONSTRAINT "public.note fpk_note_visit_occurrence_id"
+pg_restore: finished item 3059 INDEX idx_person_id
+pg_restore: launching item 3061 CONSTRAINT person xpk_person
+pg_restore: creating CONSTRAINT "public.person xpk_person"
+pg_restore: finished item 3061 CONSTRAINT person xpk_person
+pg_restore: launching item 3365 FK CONSTRAINT drug_exposure fpk_drug_exposure_person_id
+pg_restore: creating FK CONSTRAINT "public.drug_exposure fpk_drug_exposure_person_id"
+pg_restore: finished item 3365 FK CONSTRAINT drug_exposure fpk_drug_exposure_person_id
+pg_restore: launching item 3232 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_person_id
+pg_restore: creating FK CONSTRAINT "public.condition_occurrence fpk_condition_occurrence_person_id"
+pg_restore: finished item 3088 CONSTRAINT device_exposure xpk_device_exposure
+pg_restore: launching item 3505 TABLE DATA observation_period
+pg_restore: processing data for table "public.observation_period"
+pg_restore: finished item 3277 FK CONSTRAINT note fpk_note_visit_occurrence_id
+pg_restore: launching item 3524 TABLE DATA condition_era
+pg_restore: processing data for table "public.condition_era"
+pg_restore: finished item 3505 TABLE DATA observation_period
+pg_restore: launching item 3062 INDEX idx_observation_period_id_1
+pg_restore: creating INDEX "public.idx_observation_period_id_1"
+pg_restore: finished item 3524 TABLE DATA condition_era
+pg_restore: launching item 3135 INDEX idx_condition_era_concept_id_1
+pg_restore: creating INDEX "public.idx_condition_era_concept_id_1"
+pg_restore: finished item 3232 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_person_id
+pg_restore: launching item 3274 FK CONSTRAINT note fpk_note_person_id
+pg_restore: creating FK CONSTRAINT "public.note fpk_note_person_id"
+pg_restore: finished item 3135 INDEX idx_condition_era_concept_id_1
+pg_restore: launching item 3136 INDEX idx_condition_era_person_id_1
+pg_restore: creating INDEX "public.idx_condition_era_person_id_1"
+pg_restore: finished item 3062 INDEX idx_observation_period_id_1
+pg_restore: launching item 3064 CONSTRAINT observation_period xpk_observation_period
+pg_restore: creating CONSTRAINT "public.observation_period xpk_observation_period"
+pg_restore: finished item 3136 INDEX idx_condition_era_person_id_1
+pg_restore: launching item 3138 CONSTRAINT condition_era xpk_condition_era
+pg_restore: creating CONSTRAINT "public.condition_era xpk_condition_era"
+pg_restore: finished item 3138 CONSTRAINT condition_era xpk_condition_era
+pg_restore: launching item 3522 TABLE DATA drug_era
+pg_restore: processing data for table "public.drug_era"
+pg_restore: finished item 3522 TABLE DATA drug_era
+pg_restore: launching item 3127 INDEX idx_drug_era_concept_id_1
+pg_restore: creating INDEX "public.idx_drug_era_concept_id_1"
+pg_restore: finished item 3064 CONSTRAINT observation_period xpk_observation_period
+pg_restore: launching item 3128 INDEX idx_drug_era_person_id_1
+pg_restore: creating INDEX "public.idx_drug_era_person_id_1"
+pg_restore: finished item 3127 INDEX idx_drug_era_concept_id_1
+pg_restore: launching item 3512 TABLE DATA death
+pg_restore: processing data for table "public.death"
+pg_restore: finished item 3512 TABLE DATA death
+pg_restore: launching item 3095 INDEX idx_death_person_id_1
+pg_restore: creating INDEX "public.idx_death_person_id_1"
+pg_restore: finished item 3095 INDEX idx_death_person_id_1
+pg_restore: launching item 3552 TABLE DATA pos_syphilis_labs
+pg_restore: processing data for table "public.pos_syphilis_labs"
+pg_restore: finished item 3552 TABLE DATA pos_syphilis_labs
+pg_restore: launching item 3532 TABLE DATA relationship
+pg_restore: processing data for table "public.relationship"
+pg_restore: finished item 3532 TABLE DATA relationship
+pg_restore: launching item 3153 INDEX idx_relationship_rel_id
+pg_restore: creating INDEX "public.idx_relationship_rel_id"
+pg_restore: finished item 3128 INDEX idx_drug_era_person_id_1
+pg_restore: launching item 3130 CONSTRAINT drug_era xpk_drug_era
+pg_restore: creating CONSTRAINT "public.drug_era xpk_drug_era"
+pg_restore: finished item 3153 INDEX idx_relationship_rel_id
+pg_restore: launching item 3155 CONSTRAINT relationship xpk_relationship
+pg_restore: creating CONSTRAINT "public.relationship xpk_relationship"
+pg_restore: finished item 3155 CONSTRAINT relationship xpk_relationship
+pg_restore: launching item 3523 TABLE DATA dose_era
+pg_restore: processing data for table "public.dose_era"
+pg_restore: finished item 3523 TABLE DATA dose_era
+pg_restore: launching item 3131 INDEX idx_dose_era_concept_id_1
+pg_restore: creating INDEX "public.idx_dose_era_concept_id_1"
+pg_restore: finished item 3131 INDEX idx_dose_era_concept_id_1
+pg_restore: launching item 3132 INDEX idx_dose_era_person_id_1
+pg_restore: creating INDEX "public.idx_dose_era_person_id_1"
+pg_restore: finished item 3132 INDEX idx_dose_era_person_id_1
+pg_restore: launching item 3134 CONSTRAINT dose_era xpk_dose_era
+pg_restore: creating CONSTRAINT "public.dose_era xpk_dose_era"
+pg_restore: finished item 3134 CONSTRAINT dose_era xpk_dose_era
+pg_restore: launching item 3529 TABLE DATA vocabulary
+pg_restore: processing data for table "public.vocabulary"
+pg_restore: finished item 3529 TABLE DATA vocabulary
+pg_restore: launching item 3144 INDEX idx_vocabulary_vocabulary_id
+pg_restore: creating INDEX "public.idx_vocabulary_vocabulary_id"
+pg_restore: finished item 3144 INDEX idx_vocabulary_vocabulary_id
+pg_restore: launching item 3146 CONSTRAINT vocabulary xpk_vocabulary
+pg_restore: creating CONSTRAINT "public.vocabulary xpk_vocabulary"
+pg_restore: finished item 3146 CONSTRAINT vocabulary xpk_vocabulary
+pg_restore: launching item 3531 TABLE DATA concept_class
+pg_restore: processing data for table "public.concept_class"
+pg_restore: finished item 3531 TABLE DATA concept_class
+pg_restore: launching item 3150 INDEX idx_concept_class_class_id
+pg_restore: creating INDEX "public.idx_concept_class_class_id"
+pg_restore: finished item 3150 INDEX idx_concept_class_class_id
+pg_restore: launching item 3152 CONSTRAINT concept_class xpk_concept_class
+pg_restore: creating CONSTRAINT "public.concept_class xpk_concept_class"
+pg_restore: finished item 3152 CONSTRAINT concept_class xpk_concept_class
+pg_restore: launching item 3518 TABLE DATA care_site
+pg_restore: processing data for table "public.care_site"
+pg_restore: finished item 3518 TABLE DATA care_site
+pg_restore: launching item 3115 INDEX idx_care_site_id_1
+pg_restore: creating INDEX "public.idx_care_site_id_1"
+pg_restore: finished item 3115 INDEX idx_care_site_id_1
+pg_restore: launching item 3117 CONSTRAINT care_site xpk_care_site
+pg_restore: creating CONSTRAINT "public.care_site xpk_care_site"
+pg_restore: finished item 3117 CONSTRAINT care_site xpk_care_site
+pg_restore: launching item 3209 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_care_site_id
+pg_restore: creating FK CONSTRAINT "public.visit_occurrence fpk_visit_occurrence_care_site_id"
+pg_restore: finished item 3130 CONSTRAINT drug_era xpk_drug_era
+pg_restore: launching item 3530 TABLE DATA domain
+pg_restore: processing data for table "public.domain"
+pg_restore: finished item 3530 TABLE DATA domain
+pg_restore: launching item 3147 INDEX idx_domain_domain_id
+pg_restore: creating INDEX "public.idx_domain_domain_id"
+pg_restore: finished item 3147 INDEX idx_domain_domain_id
+pg_restore: launching item 3149 CONSTRAINT domain xpk_domain
+pg_restore: creating CONSTRAINT "public.domain xpk_domain"
+pg_restore: finished item 3149 CONSTRAINT domain xpk_domain
+pg_restore: launching item 3545 TABLE DATA schema_version
+pg_restore: processing data for table "public.schema_version"
+pg_restore: finished item 3545 TABLE DATA schema_version
+pg_restore: launching item 3189 CONSTRAINT schema_version schema_version_pk
+pg_restore: creating CONSTRAINT "public.schema_version schema_version_pk"
+pg_restore: finished item 3189 CONSTRAINT schema_version schema_version_pk
+pg_restore: launching item 3190 INDEX schema_version_s_idx
+pg_restore: creating INDEX "public.schema_version_s_idx"
+pg_restore: finished item 3190 INDEX schema_version_s_idx
+pg_restore: launching item 3543 TABLE DATA source
+pg_restore: processing data for table "public.source"
+pg_restore: finished item 3543 TABLE DATA source
+pg_restore: launching item 3185 CONSTRAINT source source_pk
+pg_restore: creating CONSTRAINT "public.source source_pk"
+pg_restore: finished item 3185 CONSTRAINT source source_pk
+pg_restore: launching item 3544 TABLE DATA source_daimon
+pg_restore: processing data for table "public.source_daimon"
+pg_restore: finished item 3544 TABLE DATA source_daimon
+pg_restore: launching item 3370 FK CONSTRAINT source_daimon source_daimon_source_source_id_fk
+pg_restore: creating FK CONSTRAINT "public.source_daimon source_daimon_source_source_id_fk"
+pg_restore: finished item 3370 FK CONSTRAINT source_daimon source_daimon_source_source_id_fk
+pg_restore: launching item 3187 CONSTRAINT source_daimon source_daimon_pk
+pg_restore: creating CONSTRAINT "public.source_daimon source_daimon_pk"
+pg_restore: finished item 3187 CONSTRAINT source_daimon source_daimon_pk
+pg_restore: launching item 3517 TABLE DATA location
+pg_restore: processing data for table "public.location"
+pg_restore: finished item 3517 TABLE DATA location
+pg_restore: launching item 3112 INDEX idx_location_id_1
+pg_restore: creating INDEX "public.idx_location_id_1"
+pg_restore: finished item 3112 INDEX idx_location_id_1
+pg_restore: launching item 3114 CONSTRAINT location xpk_location
+pg_restore: creating CONSTRAINT "public.location xpk_location"
+pg_restore: finished item 3114 CONSTRAINT location xpk_location
+pg_restore: launching item 3514 TABLE DATA note_nlp
+pg_restore: processing data for table "public.note_nlp"
+pg_restore: finished item 3514 TABLE DATA note_nlp
+pg_restore: launching item 3101 INDEX idx_note_nlp_concept_id_1
+pg_restore: creating INDEX "public.idx_note_nlp_concept_id_1"
+pg_restore: finished item 3101 INDEX idx_note_nlp_concept_id_1
+pg_restore: launching item 3102 INDEX idx_note_nlp_note_id_1
+pg_restore: creating INDEX "public.idx_note_nlp_note_id_1"
+pg_restore: finished item 3102 INDEX idx_note_nlp_note_id_1
+pg_restore: launching item 3104 CONSTRAINT note_nlp xpk_note_nlp
+pg_restore: creating CONSTRAINT "public.note_nlp xpk_note_nlp"
+pg_restore: finished item 3104 CONSTRAINT note_nlp xpk_note_nlp
+pg_restore: launching item 3519 TABLE DATA provider
+pg_restore: processing data for table "public.provider"
+pg_restore: finished item 3209 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_care_site_id
+pg_restore: launching item 3218 FK CONSTRAINT visit_detail fpk_visit_detail_care_site_id
+pg_restore: creating FK CONSTRAINT "public.visit_detail fpk_visit_detail_care_site_id"
+pg_restore: finished item 3218 FK CONSTRAINT visit_detail fpk_visit_detail_care_site_id
+pg_restore: launching item 3291 FK CONSTRAINT care_site fpk_care_site_location_id
+pg_restore: creating FK CONSTRAINT "public.care_site fpk_care_site_location_id"
+pg_restore: finished item 3291 FK CONSTRAINT care_site fpk_care_site_location_id
+pg_restore: launching item 3520 TABLE DATA payer_plan_period
+pg_restore: processing data for table "public.payer_plan_period"
+pg_restore: finished item 3520 TABLE DATA payer_plan_period
+pg_restore: launching item 3121 INDEX idx_period_person_id_1
+pg_restore: creating INDEX "public.idx_period_person_id_1"
+pg_restore: finished item 3121 INDEX idx_period_person_id_1
+pg_restore: launching item 3123 CONSTRAINT payer_plan_period xpk_payer_plan_period
+pg_restore: creating CONSTRAINT "public.payer_plan_period xpk_payer_plan_period"
+pg_restore: finished item 3123 CONSTRAINT payer_plan_period xpk_payer_plan_period
+pg_restore: launching item 3521 TABLE DATA cost
+pg_restore: processing data for table "public.cost"
+pg_restore: finished item 3521 TABLE DATA cost
+pg_restore: launching item 3308 FK CONSTRAINT cost fpk_cost_cost_domain_id
+pg_restore: creating FK CONSTRAINT "public.cost fpk_cost_cost_domain_id"
+pg_restore: finished item 3308 FK CONSTRAINT cost fpk_cost_cost_domain_id
+pg_restore: launching item 3124 INDEX idx_cost_event_id
+pg_restore: creating INDEX "public.idx_cost_event_id"
+pg_restore: finished item 3124 INDEX idx_cost_event_id
+pg_restore: launching item 3126 CONSTRAINT cost xpk_cost
+pg_restore: creating CONSTRAINT "public.cost xpk_cost"
+pg_restore: finished item 3126 CONSTRAINT cost xpk_cost
+pg_restore: launching item 3525 TABLE DATA episode
+pg_restore: processing data for table "public.episode"
+pg_restore: finished item 3525 TABLE DATA episode
+pg_restore: launching item 3140 CONSTRAINT episode xpk_episode
+pg_restore: creating CONSTRAINT "public.episode xpk_episode"
+pg_restore: finished item 3140 CONSTRAINT episode xpk_episode
+pg_restore: launching item 3526 TABLE DATA episode_event
+pg_restore: processing data for table "public.episode_event"
+pg_restore: finished item 3526 TABLE DATA episode_event
+pg_restore: launching item 3326 FK CONSTRAINT episode_event fpk_episode_event_episode_id
+pg_restore: creating FK CONSTRAINT "public.episode_event fpk_episode_event_episode_id"
+pg_restore: finished item 3326 FK CONSTRAINT episode_event fpk_episode_event_episode_id
+pg_restore: launching item 3527 TABLE DATA metadata
+pg_restore: processing data for table "public.metadata"
+pg_restore: finished item 3527 TABLE DATA metadata
+pg_restore: launching item 3141 INDEX idx_metadata_concept_id_1
+pg_restore: creating INDEX "public.idx_metadata_concept_id_1"
+pg_restore: finished item 3141 INDEX idx_metadata_concept_id_1
+pg_restore: launching item 3143 CONSTRAINT metadata xpk_metadata
+pg_restore: creating CONSTRAINT "public.metadata xpk_metadata"
+pg_restore: finished item 3143 CONSTRAINT metadata xpk_metadata
+pg_restore: launching item 3528 TABLE DATA cdm_source
+pg_restore: processing data for table "public.cdm_source"
+pg_restore: finished item 3528 TABLE DATA cdm_source
+pg_restore: launching item 3533 TABLE DATA concept_synonym
+pg_restore: processing data for table "public.concept_synonym"
+pg_restore: finished item 3533 TABLE DATA concept_synonym
+pg_restore: launching item 3156 INDEX idx_concept_synonym_id
+pg_restore: creating INDEX "public.idx_concept_synonym_id"
+pg_restore: finished item 3156 INDEX idx_concept_synonym_id
+pg_restore: launching item 3535 TABLE DATA source_to_concept_map
+pg_restore: processing data for table "public.source_to_concept_map"
+pg_restore: finished item 3535 TABLE DATA source_to_concept_map
+pg_restore: launching item 3339 FK CONSTRAINT source_to_concept_map fpk_source_to_concept_map_target_vocabulary_id
+pg_restore: creating FK CONSTRAINT "public.source_to_concept_map fpk_source_to_concept_map_target_vocabulary_id"
+pg_restore: finished item 3339 FK CONSTRAINT source_to_concept_map fpk_source_to_concept_map_target_vocabulary_id
+pg_restore: launching item 3159 INDEX idx_source_to_concept_map_1
+pg_restore: creating INDEX "public.idx_source_to_concept_map_1"
+pg_restore: finished item 3159 INDEX idx_source_to_concept_map_1
+pg_restore: launching item 3160 INDEX idx_source_to_concept_map_2
+pg_restore: creating INDEX "public.idx_source_to_concept_map_2"
+pg_restore: finished item 3160 INDEX idx_source_to_concept_map_2
+pg_restore: launching item 3161 INDEX idx_source_to_concept_map_3
+pg_restore: creating INDEX "public.idx_source_to_concept_map_3"
+pg_restore: finished item 3161 INDEX idx_source_to_concept_map_3
+pg_restore: launching item 3162 INDEX idx_source_to_concept_map_c
+pg_restore: creating INDEX "public.idx_source_to_concept_map_c"
+pg_restore: finished item 3162 INDEX idx_source_to_concept_map_c
+pg_restore: launching item 3537 TABLE DATA cohort
+pg_restore: processing data for table "public.cohort"
+pg_restore: finished item 3537 TABLE DATA cohort
+pg_restore: launching item 3166 CONSTRAINT cohort xpk_cohort
+pg_restore: creating CONSTRAINT "public.cohort xpk_cohort"
+pg_restore: finished item 3166 CONSTRAINT cohort xpk_cohort
+pg_restore: launching item 3538 TABLE DATA cohort_definition
+pg_restore: processing data for table "public.cohort_definition"
+pg_restore: finished item 3538 TABLE DATA cohort_definition
+pg_restore: launching item 3345 FK CONSTRAINT cohort_definition fpk_cohort_definition_cohort_definition_id
+pg_restore: creating FK CONSTRAINT "public.cohort_definition fpk_cohort_definition_cohort_definition_id"
+pg_restore: finished item 3345 FK CONSTRAINT cohort_definition fpk_cohort_definition_cohort_definition_id
+pg_restore: launching item 3607 SEQUENCE SET batch_job_execution_seq
+pg_restore: executing SEQUENCE SET batch_job_execution_seq
+pg_restore: finished item 3607 SEQUENCE SET batch_job_execution_seq
+pg_restore: launching item 3608 SEQUENCE SET batch_job_seq
+pg_restore: executing SEQUENCE SET batch_job_seq
+pg_restore: finished item 3608 SEQUENCE SET batch_job_seq
+pg_restore: launching item 3609 SEQUENCE SET batch_step_execution_seq
+pg_restore: executing SEQUENCE SET batch_step_execution_seq
+pg_restore: finished item 3609 SEQUENCE SET batch_step_execution_seq
+pg_restore: launching item 3610 SEQUENCE SET hibernate_sequence
+pg_restore: executing SEQUENCE SET hibernate_sequence
+pg_restore: finished item 3610 SEQUENCE SET hibernate_sequence
+pg_restore: finished item 3274 FK CONSTRAINT note fpk_note_person_id
+pg_restore: launching item 3211 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_person_id
+pg_restore: creating FK CONSTRAINT "public.visit_occurrence fpk_visit_occurrence_person_id"
+pg_restore: finished item 3211 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_person_id
+pg_restore: launching item 3221 FK CONSTRAINT visit_detail fpk_visit_detail_person_id
+pg_restore: creating FK CONSTRAINT "public.visit_detail fpk_visit_detail_person_id"
+pg_restore: finished item 3221 FK CONSTRAINT visit_detail fpk_visit_detail_person_id
+pg_restore: launching item 3283 FK CONSTRAINT specimen fpk_specimen_person_id
+pg_restore: creating FK CONSTRAINT "public.specimen fpk_specimen_person_id"
+pg_restore: finished item 3359 FK CONSTRAINT observation fpk_observation_value_as_concept_id
+pg_restore: launching item 3269 FK CONSTRAINT note fpk_note_encoding_concept_id
+pg_restore: creating FK CONSTRAINT "public.note fpk_note_encoding_concept_id"
+pg_restore: finished item 3283 FK CONSTRAINT specimen fpk_specimen_person_id
+pg_restore: launching item 3355 FK CONSTRAINT observation fpk_observation_person_id
+pg_restore: creating FK CONSTRAINT "public.observation fpk_observation_person_id"
+pg_restore: finished item 3355 FK CONSTRAINT observation fpk_observation_person_id
+pg_restore: launching item 3237 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_person_id
+pg_restore: creating FK CONSTRAINT "public.procedure_occurrence fpk_procedure_occurrence_person_id"
+pg_restore: finished item 3237 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_person_id
+pg_restore: launching item 3247 FK CONSTRAINT device_exposure fpk_device_exposure_person_id
+pg_restore: creating FK CONSTRAINT "public.device_exposure fpk_device_exposure_person_id"
+pg_restore: finished item 3247 FK CONSTRAINT device_exposure fpk_device_exposure_person_id
+pg_restore: launching item 3197 FK CONSTRAINT person fpk_person_care_site_id
+pg_restore: creating FK CONSTRAINT "public.person fpk_person_care_site_id"
+pg_restore: finished item 3197 FK CONSTRAINT person fpk_person_care_site_id
+pg_restore: launching item 3202 FK CONSTRAINT person fpk_person_location_id
+pg_restore: creating FK CONSTRAINT "public.person fpk_person_location_id"
+pg_restore: finished item 3202 FK CONSTRAINT person fpk_person_location_id
+pg_restore: launching item 3207 FK CONSTRAINT observation_period fpk_observation_period_person_id
+pg_restore: creating FK CONSTRAINT "public.observation_period fpk_observation_period_person_id"
+pg_restore: finished item 3207 FK CONSTRAINT observation_period fpk_observation_period_person_id
+pg_restore: launching item 3268 FK CONSTRAINT death fpk_death_person_id
+pg_restore: creating FK CONSTRAINT "public.death fpk_death_person_id"
+pg_restore: finished item 3268 FK CONSTRAINT death fpk_death_person_id
+pg_restore: launching item 3299 FK CONSTRAINT payer_plan_period fpk_payer_plan_period_payer_plan_period_id
+pg_restore: creating FK CONSTRAINT "public.payer_plan_period fpk_payer_plan_period_payer_plan_period_id"
+pg_restore: finished item 3299 FK CONSTRAINT payer_plan_period fpk_payer_plan_period_payer_plan_period_id
+pg_restore: launching item 3301 FK CONSTRAINT payer_plan_period fpk_payer_plan_period_person_id
+pg_restore: creating FK CONSTRAINT "public.payer_plan_period fpk_payer_plan_period_person_id"
+pg_restore: finished item 3301 FK CONSTRAINT payer_plan_period fpk_payer_plan_period_person_id
+pg_restore: launching item 3314 FK CONSTRAINT drug_era fpk_drug_era_person_id
+pg_restore: creating FK CONSTRAINT "public.drug_era fpk_drug_era_person_id"
+pg_restore: finished item 3314 FK CONSTRAINT drug_era fpk_drug_era_person_id
+pg_restore: launching item 3316 FK CONSTRAINT dose_era fpk_dose_era_person_id
+pg_restore: creating FK CONSTRAINT "public.dose_era fpk_dose_era_person_id"
+pg_restore: finished item 3316 FK CONSTRAINT dose_era fpk_dose_era_person_id
+pg_restore: launching item 3319 FK CONSTRAINT condition_era fpk_condition_era_person_id
+pg_restore: creating FK CONSTRAINT "public.condition_era fpk_condition_era_person_id"
+pg_restore: finished item 3319 FK CONSTRAINT condition_era fpk_condition_era_person_id
+pg_restore: launching item 3324 FK CONSTRAINT episode fpk_episode_person_id
+pg_restore: creating FK CONSTRAINT "public.episode fpk_episode_person_id"
+pg_restore: finished item 3324 FK CONSTRAINT episode fpk_episode_person_id
+pg_restore: finished item 3269 FK CONSTRAINT note fpk_note_encoding_concept_id
+pg_restore: launching item 3270 FK CONSTRAINT note fpk_note_language_concept_id
+pg_restore: creating FK CONSTRAINT "public.note fpk_note_language_concept_id"
+pg_restore: finished item 3270 FK CONSTRAINT note fpk_note_language_concept_id
+pg_restore: launching item 3271 FK CONSTRAINT note fpk_note_note_class_concept_id
+pg_restore: creating FK CONSTRAINT "public.note fpk_note_note_class_concept_id"
+pg_restore: finished item 3271 FK CONSTRAINT note fpk_note_note_class_concept_id
+pg_restore: launching item 3272 FK CONSTRAINT note fpk_note_note_event_field_concept_id
+pg_restore: creating FK CONSTRAINT "public.note fpk_note_note_event_field_concept_id"
+pg_restore: finished item 3272 FK CONSTRAINT note fpk_note_note_event_field_concept_id
+pg_restore: launching item 3273 FK CONSTRAINT note fpk_note_note_type_concept_id
+pg_restore: creating FK CONSTRAINT "public.note fpk_note_note_type_concept_id"
+pg_restore: finished item 3273 FK CONSTRAINT note fpk_note_note_type_concept_id
+pg_restore: launching item 3169 INDEX idx_concept_class_id
+pg_restore: launching item 3170 INDEX idx_concept_code
+pg_restore: pg_restore:launching item 3171 INDEX idx_concept_concept_id
+ creating INDEX "public.idx_concept_class_id"
+pg_restore: creating INDEX "public.idx_concept_code"
+pg_restore: creating INDEX "public.idx_concept_concept_id"
+pg_restore: finished item 3169 INDEX idx_concept_class_id
+pg_restore: launching item 3172 INDEX idx_concept_domain_id
+pg_restore: creating INDEX "public.idx_concept_domain_id"
+pg_restore: finished item 3170 INDEX idx_concept_code
+pg_restore: launching item 3173 INDEX idx_concept_vocabluary_id
+pg_restore: creating INDEX "public.idx_concept_vocabluary_id"
+pg_restore: finished item 3171 INDEX idx_concept_concept_id
+pg_restore: finished item 3172 INDEX idx_concept_domain_id
+pg_restore: finished item 3091 INDEX idx_measurement_visit_id_1
+pg_restore: finished item 3173 INDEX idx_concept_vocabluary_id
+pg_restore: launching item 3198 FK CONSTRAINT person fpk_person_ethnicity_concept_id
+pg_restore: creating FK CONSTRAINT "public.person fpk_person_ethnicity_concept_id"
+pg_restore: finished item 3089 INDEX idx_measurement_concept_id_1
+pg_restore: finished item 3198 FK CONSTRAINT person fpk_person_ethnicity_concept_id
+pg_restore: launching item 3199 FK CONSTRAINT person fpk_person_ethnicity_source_concept_id
+pg_restore: creating FK CONSTRAINT "public.person fpk_person_ethnicity_source_concept_id"
+pg_restore: finished item 3199 FK CONSTRAINT person fpk_person_ethnicity_source_concept_id
+pg_restore: launching item 3200 FK CONSTRAINT person fpk_person_gender_concept_id
+pg_restore: creating FK CONSTRAINT "public.person fpk_person_gender_concept_id"
+pg_restore: finished item 3200 FK CONSTRAINT person fpk_person_gender_concept_id
+pg_restore: launching item 3201 FK CONSTRAINT person fpk_person_gender_source_concept_id
+pg_restore: creating FK CONSTRAINT "public.person fpk_person_gender_source_concept_id"
+pg_restore: finished item 3201 FK CONSTRAINT person fpk_person_gender_source_concept_id
+pg_restore: launching item 3204 FK CONSTRAINT person fpk_person_race_concept_id
+pg_restore: creating FK CONSTRAINT "public.person fpk_person_race_concept_id"
+pg_restore: finished item 3204 FK CONSTRAINT person fpk_person_race_concept_id
+pg_restore: launching item 3205 FK CONSTRAINT person fpk_person_race_source_concept_id
+pg_restore: creating FK CONSTRAINT "public.person fpk_person_race_source_concept_id"
+pg_restore: finished item 3205 FK CONSTRAINT person fpk_person_race_source_concept_id
+pg_restore: launching item 3206 FK CONSTRAINT observation_period fpk_observation_period_period_type_concept_id
+pg_restore: creating FK CONSTRAINT "public.observation_period fpk_observation_period_period_type_concept_id"
+pg_restore: finished item 3206 FK CONSTRAINT observation_period fpk_observation_period_period_type_concept_id
+pg_restore: launching item 3208 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_admitted_from_concept_id
+pg_restore: creating FK CONSTRAINT "public.visit_occurrence fpk_visit_occurrence_admitted_from_concept_id"
+pg_restore: finished item 3208 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_admitted_from_concept_id
+pg_restore: launching item 3210 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_discharged_to_concept_id
+pg_restore: creating FK CONSTRAINT "public.visit_occurrence fpk_visit_occurrence_discharged_to_concept_id"
+pg_restore: finished item 3210 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_discharged_to_concept_id
+pg_restore: launching item 3214 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_visit_concept_id
+pg_restore: creating FK CONSTRAINT "public.visit_occurrence fpk_visit_occurrence_visit_concept_id"
+pg_restore: finished item 3214 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_visit_concept_id
+pg_restore: launching item 3215 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_visit_source_concept_id
+pg_restore: creating FK CONSTRAINT "public.visit_occurrence fpk_visit_occurrence_visit_source_concept_id"
+pg_restore: finished item 3215 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_visit_source_concept_id
+pg_restore: launching item 3216 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_visit_type_concept_id
+pg_restore: creating FK CONSTRAINT "public.visit_occurrence fpk_visit_occurrence_visit_type_concept_id"
+pg_restore: finished item 3216 FK CONSTRAINT visit_occurrence fpk_visit_occurrence_visit_type_concept_id
+pg_restore: launching item 3217 FK CONSTRAINT visit_detail fpk_visit_detail_admitted_from_concept_id
+pg_restore: creating FK CONSTRAINT "public.visit_detail fpk_visit_detail_admitted_from_concept_id"
+pg_restore: finished item 3217 FK CONSTRAINT visit_detail fpk_visit_detail_admitted_from_concept_id
+pg_restore: launching item 3219 FK CONSTRAINT visit_detail fpk_visit_detail_discharged_to_concept_id
+pg_restore: creating FK CONSTRAINT "public.visit_detail fpk_visit_detail_discharged_to_concept_id"
+pg_restore: finished item 3219 FK CONSTRAINT visit_detail fpk_visit_detail_discharged_to_concept_id
+pg_restore: launching item 3224 FK CONSTRAINT visit_detail fpk_visit_detail_visit_detail_concept_id
+pg_restore: creating FK CONSTRAINT "public.visit_detail fpk_visit_detail_visit_detail_concept_id"
+pg_restore: finished item 3224 FK CONSTRAINT visit_detail fpk_visit_detail_visit_detail_concept_id
+pg_restore: launching item 3225 FK CONSTRAINT visit_detail fpk_visit_detail_visit_detail_source_concept_id
+pg_restore: creating FK CONSTRAINT "public.visit_detail fpk_visit_detail_visit_detail_source_concept_id"
+pg_restore: finished item 3225 FK CONSTRAINT visit_detail fpk_visit_detail_visit_detail_source_concept_id
+pg_restore: launching item 3226 FK CONSTRAINT visit_detail fpk_visit_detail_visit_detail_type_concept_id
+pg_restore: creating FK CONSTRAINT "public.visit_detail fpk_visit_detail_visit_detail_type_concept_id"
+pg_restore: finished item 3519 TABLE DATA provider
+pg_restore: launching item 3293 FK CONSTRAINT provider fpk_provider_care_site_id
+pg_restore: creating FK CONSTRAINT "public.provider fpk_provider_care_site_id"
+pg_restore: finished item 3293 FK CONSTRAINT provider fpk_provider_care_site_id
+pg_restore: launching item 3118 INDEX idx_provider_id_1
+pg_restore: creating INDEX "public.idx_provider_id_1"
+pg_restore: finished item 3118 INDEX idx_provider_id_1
+pg_restore: launching item 3120 CONSTRAINT provider xpk_provider
+pg_restore: creating CONSTRAINT "public.provider xpk_provider"
+pg_restore: finished item 3226 FK CONSTRAINT visit_detail fpk_visit_detail_visit_detail_type_concept_id
+pg_restore: launching item 3228 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_condition_concept_id
+pg_restore: creating FK CONSTRAINT "public.condition_occurrence fpk_condition_occurrence_condition_concept_id"
+pg_restore: finished item 3228 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_condition_concept_id
+pg_restore: launching item 3229 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_condition_source_concept_id
+pg_restore: creating FK CONSTRAINT "public.condition_occurrence fpk_condition_occurrence_condition_source_concept_id"
+pg_restore: finished item 3229 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_condition_source_concept_id
+pg_restore: launching item 3230 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_condition_status_concept_id
+pg_restore: creating FK CONSTRAINT "public.condition_occurrence fpk_condition_occurrence_condition_status_concept_id"
+pg_restore: finished item 3230 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_condition_status_concept_id
+pg_restore: launching item 3231 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_condition_type_concept_id
+pg_restore: creating FK CONSTRAINT "public.condition_occurrence fpk_condition_occurrence_condition_type_concept_id"
+pg_restore: finished item 3231 FK CONSTRAINT condition_occurrence fpk_condition_occurrence_condition_type_concept_id
+pg_restore: launching item 3236 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_modifier_concept_id
+pg_restore: creating FK CONSTRAINT "public.procedure_occurrence fpk_procedure_occurrence_modifier_concept_id"
+pg_restore: finished item 3236 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_modifier_concept_id
+pg_restore: launching item 3238 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_procedure_concept_id
+pg_restore: creating FK CONSTRAINT "public.procedure_occurrence fpk_procedure_occurrence_procedure_concept_id"
+pg_restore: finished item 3238 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_procedure_concept_id
+pg_restore: launching item 3239 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_procedure_source_concept_id
+pg_restore: creating FK CONSTRAINT "public.procedure_occurrence fpk_procedure_occurrence_procedure_source_concept_id"
+pg_restore: finished item 3239 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_procedure_source_concept_id
+pg_restore: launching item 3240 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_procedure_type_concept_id
+pg_restore: creating FK CONSTRAINT "public.procedure_occurrence fpk_procedure_occurrence_procedure_type_concept_id"
+pg_restore: finished item 3240 FK CONSTRAINT procedure_occurrence fpk_procedure_occurrence_procedure_type_concept_id
+pg_restore: launching item 3244 FK CONSTRAINT device_exposure fpk_device_exposure_device_concept_id
+pg_restore: creating FK CONSTRAINT "public.device_exposure fpk_device_exposure_device_concept_id"
+pg_restore: finished item 3244 FK CONSTRAINT device_exposure fpk_device_exposure_device_concept_id
+pg_restore: launching item 3245 FK CONSTRAINT device_exposure fpk_device_exposure_device_source_concept_id
+pg_restore: creating FK CONSTRAINT "public.device_exposure fpk_device_exposure_device_source_concept_id"
+pg_restore: finished item 3245 FK CONSTRAINT device_exposure fpk_device_exposure_device_source_concept_id
+pg_restore: launching item 3246 FK CONSTRAINT device_exposure fpk_device_exposure_device_type_concept_id
+pg_restore: creating FK CONSTRAINT "public.device_exposure fpk_device_exposure_device_type_concept_id"
+pg_restore: finished item 3246 FK CONSTRAINT device_exposure fpk_device_exposure_device_type_concept_id
+pg_restore: launching item 3249 FK CONSTRAINT device_exposure fpk_device_exposure_unit_concept_id
+pg_restore: creating FK CONSTRAINT "public.device_exposure fpk_device_exposure_unit_concept_id"
+pg_restore: finished item 3249 FK CONSTRAINT device_exposure fpk_device_exposure_unit_concept_id
+pg_restore: launching item 3250 FK CONSTRAINT device_exposure fpk_device_exposure_unit_source_concept_id
+pg_restore: creating FK CONSTRAINT "public.device_exposure fpk_device_exposure_unit_source_concept_id"
+pg_restore: finished item 3250 FK CONSTRAINT device_exposure fpk_device_exposure_unit_source_concept_id
+pg_restore: launching item 3265 FK CONSTRAINT death fpk_death_cause_concept_id
+pg_restore: creating FK CONSTRAINT "public.death fpk_death_cause_concept_id"
+pg_restore: finished item 3265 FK CONSTRAINT death fpk_death_cause_concept_id
+pg_restore: launching item 3266 FK CONSTRAINT death fpk_death_cause_source_concept_id
+pg_restore: creating FK CONSTRAINT "public.death fpk_death_cause_source_concept_id"
+pg_restore: finished item 3266 FK CONSTRAINT death fpk_death_cause_source_concept_id
+pg_restore: launching item 3267 FK CONSTRAINT death fpk_death_death_type_concept_id
+pg_restore: creating FK CONSTRAINT "public.death fpk_death_death_type_concept_id"
+pg_restore: finished item 3267 FK CONSTRAINT death fpk_death_death_type_concept_id
+pg_restore: launching item 3278 FK CONSTRAINT note_nlp fpk_note_nlp_note_nlp_concept_id
+pg_restore: creating FK CONSTRAINT "public.note_nlp fpk_note_nlp_note_nlp_concept_id"
+pg_restore: finished item 3278 FK CONSTRAINT note_nlp fpk_note_nlp_note_nlp_concept_id
+pg_restore: launching item 3279 FK CONSTRAINT note_nlp fpk_note_nlp_note_nlp_source_concept_id
+pg_restore: creating FK CONSTRAINT "public.note_nlp fpk_note_nlp_note_nlp_source_concept_id"
+pg_restore: finished item 3279 FK CONSTRAINT note_nlp fpk_note_nlp_note_nlp_source_concept_id
+pg_restore: launching item 3280 FK CONSTRAINT note_nlp fpk_note_nlp_section_concept_id
+pg_restore: creating FK CONSTRAINT "public.note_nlp fpk_note_nlp_section_concept_id"
+pg_restore: finished item 3280 FK CONSTRAINT note_nlp fpk_note_nlp_section_concept_id
+pg_restore: launching item 3281 FK CONSTRAINT specimen fpk_specimen_anatomic_site_concept_id
+pg_restore: creating FK CONSTRAINT "public.specimen fpk_specimen_anatomic_site_concept_id"
+pg_restore: finished item 3281 FK CONSTRAINT specimen fpk_specimen_anatomic_site_concept_id
+pg_restore: launching item 3282 FK CONSTRAINT specimen fpk_specimen_disease_status_concept_id
+pg_restore: creating FK CONSTRAINT "public.specimen fpk_specimen_disease_status_concept_id"
+

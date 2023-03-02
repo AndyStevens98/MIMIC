@@ -1,0 +1,5 @@
+concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,standard_concept,concept_code,valid_start_date,valid_end_date,invalid_reason
+2000025991,Sensitive,Meas Value,mimiciv_micro_resistance,Answer,,S,1970-01-01,2099-12-31,
+2000025992,Resistant,Meas Value,mimiciv_micro_resistance,Answer,,R,1970-01-01,2099-12-31,
+2000025993,Intermediate,Meas Value,mimiciv_micro_resistance,Answer,,I,1970-01-01,2099-12-31,
+2000025994,Pending,Meas Value,mimiciv_micro_resistance,Answer,,P,1970-01-01,2099-12-31,

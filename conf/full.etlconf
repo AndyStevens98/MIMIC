@@ -1,31 +1,12 @@
 {
     "comment": "draft configuration with design derived from CDMKit",
 
-    "variables": 
+    "variables":
     {
-        "@source_project":   "source_project...",
-        "@core_dataset":     "core...",
-        "@hosp_dataset":     "hosp...",
-        "@icu_dataset":      "icu...",
-        "@ed_dataset":       "ed...",
-
-        "@voc_project": "etl_project...",
-        "@voc_dataset": "voc...",
-
-        "@wf_project": "etl_project...",
-        "@wf_dataset": "wf...",
-
-        "@etl_project": "etl_project...",
-        "@etl_dataset": "etl...",
-
-        "@metrics_project": "etl_project...",
-        "@metrics_dataset": "metrics...",
-
-        "@atlas_project": "etl_project...",
-        "@atlas_dataset": "atlas...",
-
-        "@waveforms_csv_path":  "gs://bucket..."
-
+        "@source_project":   "mimic_iv_1.0",
+        "@core_dataset":     "core",
+        "@hosp_dataset":     "hosp",
+        "@icu_dataset":      "icu",
     },
 
     "workflows":
@@ -57,7 +38,7 @@
         },
 
         {
-            "workflow": "ut", 
+            "workflow": "ut",
             "type": "sql",
             "conf": "workflow_ut.conf"
         },
