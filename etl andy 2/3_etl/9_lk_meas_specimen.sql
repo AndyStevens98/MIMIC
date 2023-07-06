@@ -167,14 +167,6 @@ WHERE
 -- -------------------------------------------------------------------
 
 CREATE TABLE mimiciv_etl.lk_d_micro_clean AS
-SELECT
-    dm.itemid                                       AS itemid,
-    dm.itemid::VARCHAR                              AS source_code,
-    dm.label                                        AS source_label, -- for organism_mapped: test name plus specimen name
-    CONCAT('mimiciv_micro_', LOWER(dm.category))    AS source_vocabulary_id,
-FROM
-    mimiciv_hosp.src_d_micro dm
-UNION ALL
 SELECT DISTINCT
     NULL::INTEGER                                   AS itemid,
     src.interpretation                              AS source_code,
@@ -184,6 +176,30 @@ FROM
     mimiciv_etl.lk_meas_ab_clean src
 WHERE
     src.interpretation IS NOT NULL
+UNION ALL
+SELECT DISTINCT
+    src.spec_itemid                                 AS itemid,
+    src.spec_itemid::VARCHAR                        AS source_code,
+    src.spec_type_desc                              AS source_label,
+    'mimiciv_micro_specimen'                        AS source_vocabulary_id
+FROM
+    mimiciv_hosp.src_microbiologyevents src
+UNION ALL
+SELECT DISTINCT
+    src.test_itemid                                 AS itemid,
+    src.test_itemid::VARCHAR                        AS source_code,
+    src.test_name                                   AS source_label,
+    'mimiciv_micro_microtest'                       AS source_vocabulary_id
+FROM
+    mimiciv_hosp.src_microbiologyevents src
+UNION ALL
+SELECT DISTINCT
+    src.ab_itemid                                 AS itemid,
+    src.ab_itemid::VARCHAR                        AS source_code,
+    src.ab_name                                   AS source_label,
+    'mimiciv_micro_antibiotic'                      AS source_vocabulary_id
+FROM
+    mimiciv_hosp.src_microbiologyevents src
 ;
 
 -- -------------------------------------------------------------------

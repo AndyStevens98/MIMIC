@@ -52,13 +52,9 @@ LANGUAGE PLPGSQL;
 CREATE TABLE mimiciv_etl.lk_meas_d_labitems_clean AS
 SELECT
     dlab.itemid                                                 AS itemid, -- for <cdm>.<source_value>
-    COALESCE(dlab.loinc_code, dlab.itemid::VARCHAR)             AS source_code, -- to join to vocabs
-    dlab.loinc_code                                             AS loinc_code, -- for the crosswalk table
+    dlab.itemid::VARCHAR                                        AS source_code, -- to join to vocabs
     CONCAT(dlab.label, '|', dlab.fluid, '|', dlab.category)     AS source_label, -- for the crosswalk table
-    CASE
-        WHEN dlab.loinc_code IS NOT NULL THEN 'LOINC',
-        ELSE 'mimiciv_meas_lab_loinc'
-    END                                                           AS source_vocabulary_id
+    'mimiciv_meas_lab_loinc'                                    AS source_vocabulary_id
 FROM
     mimiciv_hosp.src_d_labitems dlab
 ;
@@ -76,8 +72,8 @@ SELECT
     src.hadm_id                                                 AS hadm_id,
     src.itemid                                                  AS itemid,
     src.value                                                   AS value, -- value_source_value
-    REGEXP_EXTRACT(src.value, r'^(\<=|\>=|\>|\<|=|)')           AS value_operator,
-    REGEXP_EXTRACT(src.value, r'[-]?[\d]+[.]?[\d]*')            AS value_number, -- assume "-0.34 etc"
+    REGEXP_EXTRACT(src.value, '^(\<=|\>=|\>|\<|=|)')           AS value_operator,
+    REGEXP_EXTRACT(src.value, '[-]?[\d]+[.]?[\d]*')            AS value_number, -- assume "-0.34 etc"
     CASE WHEN TRIM(src.valueuom) <> '' THEN src.valueuom END    AS valueuom, -- unit_source_value,
     src.ref_range_lower                                         AS ref_range_lower,
     src.ref_range_upper                                         AS ref_range_upper,
@@ -105,7 +101,6 @@ CREATE TABLE mimiciv_etl.lk_meas_d_labitems_concept AS
 SELECT
     dlab.itemid                 AS itemid,
     dlab.source_code            AS source_code,
-    dlab.loinc_code             AS loinc_code,
     dlab.source_label           AS source_label,
     dlab.source_vocabulary_id   AS source_vocabulary_id,
     -- source concept

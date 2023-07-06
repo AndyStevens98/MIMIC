@@ -37,81 +37,81 @@
 -- -------------------------------------------------------------------
 
 --HINT DISTRIBUTE_ON_KEY(person_id)
-CREATE TABLE `@etl_project`.@etl_dataset.cdm_visit_occurrence
+CREATE TABLE mimiciv_etl.cdm_visit_occurrence
 (
-    visit_occurrence_id           INT64     not null ,
-    person_id                     INT64     not null ,
-    visit_concept_id              INT64     not null ,
-    visit_start_date              DATE      not null ,
-    visit_start_datetime          DATETIME           ,
-    visit_end_date                DATE      not null ,
-    visit_end_datetime            DATETIME           ,
-    visit_type_concept_id         INT64     not null ,
-    provider_id                   INT64              ,
-    care_site_id                  INT64              ,
-    visit_source_value            STRING             ,
-    visit_source_concept_id       INT64              ,
-    admitting_source_concept_id   INT64              ,
-    admitting_source_value        STRING             ,
-    discharge_to_concept_id       INT64              ,
-    discharge_to_source_value     STRING             ,
-    preceding_visit_occurrence_id INT64              ,
+    visit_occurrence_id           INTEGER     not null ,
+    person_id                     INTEGER     not null ,
+    visit_concept_id              INTEGER     not null ,
+    visit_start_date              DATE        not null ,
+    visit_start_datetime          TIMESTAMP            ,
+    visit_end_date                DATE        not null ,
+    visit_end_datetime            TIMESTAMP            ,
+    visit_type_concept_id         INTEGER     not null ,
+    provider_id                   INTEGER              ,
+    care_site_id                  INTEGER              ,
+    visit_source_value            VARCHAR              ,
+    visit_source_concept_id       INTEGER              ,
+    admitting_source_concept_id   INTEGER              ,
+    admitting_source_value        VARCHAR              ,
+    discharge_to_concept_id       INTEGER              ,
+    discharge_to_source_value     VARCHAR              ,
+    preceding_visit_occurrence_id INTEGER              ,
     --
-    unit_id                       STRING,
-    load_table_id                 STRING,
-    load_row_id                   INT64,
-    trace_id                      STRING
+    unit_id                       VARCHAR,
+    load_table_id                 VARCHAR,
+    load_row_id                   TEXT,
+    trace_id                      VARCHAR
 )
 ;
 
-INSERT INTO `@etl_project`.@etl_dataset.cdm_visit_occurrence
+INSERT INTO mimiciv_etl.cdm_visit_occurrence
 SELECT
     src.visit_occurrence_id                 AS visit_occurrence_id,
     per.person_id                           AS person_id,
     COALESCE(lat.target_concept_id, 0)      AS visit_concept_id,
-    CAST(src.start_datetime AS DATE)        AS visit_start_date,
+    src.start_datetime::DATE                AS visit_start_date,
     src.start_datetime                      AS visit_start_datetime,
-    CAST(src.end_datetime AS DATE)          AS visit_end_date,
+    src.end_datetime::DATE                  AS visit_end_date,
     src.end_datetime                        AS visit_end_datetime,
     32817                                   AS visit_type_concept_id,   -- EHR   Type Concept    Standard
-    CAST(NULL AS INT64)                     AS provider_id,
+    NULL::INTEGER                           AS provider_id,
     cs.care_site_id                         AS care_site_id,
     src.source_value                        AS visit_source_value, -- it should be an ID for visits
     COALESCE(lat.source_concept_id, 0)      AS visit_source_concept_id, -- it is where visit_concept_id comes from
-    IF(
-        src.admission_location IS NOT NULL,
-        COALESCE(la.target_concept_id, 0),
-        NULL)                               AS admitting_source_concept_id,
+    CASE
+        WHEN src.admission_location IS NOT NULL 
+            THEN COALESCE(la.target_concept_id, 0)
+    END                                     AS admitting_source_concept_id,
     src.admission_location                  AS admitting_source_value,
-    IF(
-        src.discharge_location IS NOT NULL,
-        COALESCE(ld.target_concept_id, 0),
-        NULL)                               AS discharge_to_concept_id,
+    CASE
+        WHEN src.discharge_location IS NOT NULL
+            THEN COALESCE(ld.target_concept_id, 0)
+    END                                     AS discharge_to_concept_id,
     src.discharge_location                  AS discharge_to_source_value,
     LAG(src.visit_occurrence_id) OVER (
         PARTITION BY subject_id, hadm_id
         ORDER BY start_datetime
-    )                                   AS preceding_visit_occurrence_id,
+    )                                       AS preceding_visit_occurrence_id,
     --
-    CONCAT('visit.', src.unit_id)   AS unit_id,
-    src.load_table_id               AS load_table_id,
-    src.load_row_id                 AS load_row_id,
-    src.trace_id                    AS trace_id
+    CONCAT('visit.', src.unit_id)           AS unit_id,
+    src.load_table_id                       AS load_table_id,
+    src.load_row_id                         AS load_row_id,
+    src.trace_id                            AS trace_id
 FROM
-    `@etl_project`.@etl_dataset.lk_visit_clean src
+    mimiciv_etl.lk_visit_clean src
 INNER JOIN
-    `@etl_project`.@etl_dataset.cdm_person per
-        ON CAST(src.subject_id AS STRING) = per.person_source_value
+    mimiciv_etl.cdm_person per
+        ON src.subject_id::VARCHAR = per.person_source_value
 LEFT JOIN
-    `@etl_project`.@etl_dataset.lk_visit_concept lat
+    mimiciv_etl.lk_visit_concept lat
         ON lat.source_code = src.admission_type
 LEFT JOIN
-    `@etl_project`.@etl_dataset.lk_visit_concept la
+    mimiciv_etl.lk_visit_concept la
         ON la.source_code = src.admission_location
 LEFT JOIN
-    `@etl_project`.@etl_dataset.lk_visit_concept ld
+    mimiciv_etl.lk_visit_concept ld
         ON ld.source_code = src.discharge_location
 LEFT JOIN
-    `@etl_project`.@etl_dataset.cdm_care_site cs
+    mimiciv_etl.cdm_care_site cs
         ON care_site_name = 'BIDMC' -- Beth Israel hospital for all
 ;

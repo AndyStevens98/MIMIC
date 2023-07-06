@@ -31,79 +31,64 @@
 --      lk_meas_waveform_mapped
 -- -------------------------------------------------------------------
 
-CREATE TABLE `@etl_project`.@etl_dataset.lk_visit_no_hadm_all AS
+CREATE TABLE mimiciv_etl.lk_visit_no_hadm_all AS
 -- labevents
 SELECT
     src.subject_id                                  AS subject_id,
-    CAST(src.start_datetime AS DATE)                AS date_id,
+    src.start_datetime::DATE                        AS date_id,
     src.start_datetime                              AS start_datetime,
     --
-    src.unit_id                     AS unit_id,
-    src.load_table_id               AS load_table_id,
-    src.load_row_id                 AS load_row_id,
-    src.trace_id                    AS trace_id
+    src.unit_id                                     AS unit_id,
+    src.load_table_id                               AS load_table_id,
+    src.load_row_id                                 AS load_row_id,
+    src.trace_id                                    AS trace_id
 FROM
-    `@etl_project`.@etl_dataset.lk_meas_labevents_mapped src
+    mimiciv_etl.lk_meas_labevents_mapped src
 WHERE
     src.hadm_id IS NULL
 UNION ALL
 -- specimen
 SELECT
     src.subject_id                                  AS subject_id,
-    CAST(src.start_datetime AS DATE)                AS date_id,
+    src.start_datetime::DATE                        AS date_id,
     src.start_datetime                              AS start_datetime,
     --
-    src.unit_id                     AS unit_id,
-    src.load_table_id               AS load_table_id,
-    src.load_row_id                 AS load_row_id,
-    src.trace_id                    AS trace_id
+    src.unit_id                                     AS unit_id,
+    src.load_table_id                               AS load_table_id,
+    src.load_row_id::TEXT                           AS load_row_id,
+    src.trace_id                                    AS trace_id
 FROM
-    `@etl_project`.@etl_dataset.lk_specimen_mapped src
+    mimiciv_etl.lk_specimen_mapped src
 WHERE
     src.hadm_id IS NULL
 UNION ALL
 -- organism
 SELECT
     src.subject_id                                  AS subject_id,
-    CAST(src.start_datetime AS DATE)                AS date_id,
+    src.start_datetime::DATE                        AS date_id,
     src.start_datetime                              AS start_datetime,
     --
-    src.unit_id                     AS unit_id,
-    src.load_table_id               AS load_table_id,
-    src.load_row_id                 AS load_row_id,
-    src.trace_id                    AS trace_id
+    src.unit_id                                     AS unit_id,
+    src.load_table_id                               AS load_table_id,
+    src.load_row_id::TEXT                           AS load_row_id,
+    src.trace_id                                    AS trace_id
 FROM
-    `@etl_project`.@etl_dataset.lk_meas_organism_mapped src
+    mimiciv_etl.lk_meas_organism_mapped src
 WHERE
     src.hadm_id IS NULL
 UNION ALL
 -- antibiotics
 SELECT
     src.subject_id                                  AS subject_id,
-    CAST(src.start_datetime AS DATE)                AS date_id,
+    src.start_datetime::DATE                        AS date_id,
     src.start_datetime                              AS start_datetime,
     --
-    src.unit_id                     AS unit_id,
-    src.load_table_id               AS load_table_id,
-    src.load_row_id                 AS load_row_id,
-    src.trace_id                    AS trace_id
+    src.unit_id                                     AS unit_id,
+    src.load_table_id                               AS load_table_id,
+    src.load_row_id::TEXT                           AS load_row_id,
+    src.trace_id                                    AS trace_id
 FROM
-    `@etl_project`.@etl_dataset.lk_meas_ab_mapped src
-WHERE
-    src.hadm_id IS NULL
-UNION ALL
--- waveforms
-SELECT
-    src.subject_id                                  AS subject_id,
-    CAST(src.start_datetime AS DATE)                AS date_id,
-    src.start_datetime                              AS start_datetime,
-    --
-    src.unit_id                     AS unit_id,
-    src.load_table_id               AS load_table_id,
-    src.load_row_id                 AS load_row_id,
-    src.trace_id                    AS trace_id
-FROM
-    `@etl_project`.@etl_dataset.lk_meas_waveform_mapped src
+    mimiciv_etl.lk_meas_ab_mapped src
 WHERE
     src.hadm_id IS NULL
 ;
@@ -112,95 +97,60 @@ WHERE
 -- lk_visit_no_hadm_dist
 -- -------------------------------------------------------------------
 
-CREATE TABLE `@etl_project`.@etl_dataset.lk_visit_no_hadm_dist AS
+CREATE TABLE mimiciv_etl.lk_visit_no_hadm_dist AS
 SELECT
     src.subject_id                                  AS subject_id,
     src.date_id                                     AS date_id,
     MIN(src.start_datetime)                         AS start_datetime,
     MAX(src.start_datetime)                         AS end_datetime,
     'AMBULATORY OBSERVATION'                        AS admission_type, -- outpatient visit
-    CAST(NULL AS STRING)                            AS admission_location, -- to hospital
-    CAST(NULL AS STRING)                            AS discharge_location, -- from hospital
+    NULL::VARCHAR                                   AS admission_location, -- to hospital
+    NULL::VARCHAR                                   AS discharge_location, -- from hospital
     --
-    'no_hadm'                       AS unit_id,
-    'lk_visit_no_hadm_all'          AS load_table_id,
-    0                               AS load_row_id,
-    TO_JSON_STRING(STRUCT(
-        src.subject_id AS subject_id,
-        src.date_id AS date_id
-    ))                                  AS trace_id
+    'no_hadm'                                       AS unit_id,
+    'lk_visit_no_hadm_all'                          AS load_table_id,
+    0                                               AS load_row_id,
+    json_build_object(
+        'subject_id', src.subject_id,
+        'date_id', src.date_id
+    ) #>> '{}'                                      AS trace_id
 FROM
-    `@etl_project`.@etl_dataset.lk_visit_no_hadm_all src
+    mimiciv_etl.lk_visit_no_hadm_all src
 GROUP BY
     src.subject_id,
     src.date_id
-;
-
-
--- -------------------------------------------------------------------
--- lk_visit_detail_waveform_dist
---
--- collect rows without hadm_id from all tables affected by this case:
---      lk_meas_waveform_mapped
--- -------------------------------------------------------------------
-
-CREATE TABLE `@etl_project`.@etl_dataset.lk_visit_detail_waveform_dist AS
-SELECT
-    src.subject_id                                  AS subject_id,
-    src.hadm_id                                     AS hadm_id,
-    CAST(MIN(src.start_datetime) AS DATE)           AS date_id,
-    MIN(src.start_datetime)                         AS start_datetime,
-    MAX(src.start_datetime)                         AS end_datetime,
-    'AMBULATORY OBSERVATION'                        AS current_location, -- outpatient visit
-    src.reference_id                                AS reference_id,
-    --
-    'waveforms'                     AS unit_id,
-    'lk_meas_waveform_mapped'       AS load_table_id,
-    0                               AS load_row_id,
-    TO_JSON_STRING(STRUCT(
-        src.subject_id AS subject_id,
-        src.hadm_id AS hadm_id,
-        src.reference_id AS reference_id
-    ))                                  AS trace_id
-FROM
-    `@etl_project`.@etl_dataset.lk_meas_waveform_mapped src
-GROUP BY
-    src.subject_id,
-    src.hadm_id,
-    src.reference_id
 ;
 
 -- -------------------------------------------------------------------
 -- lk_visit_clean
 -- -------------------------------------------------------------------
 
-CREATE TABLE `@etl_project`.@etl_dataset.lk_visit_clean AS
+CREATE TABLE mimiciv_etl.lk_visit_clean AS
 SELECT
-    md5(gen_random_uuid()::text)               AS visit_occurrence_id,
     src.subject_id                                  AS subject_id,
     src.hadm_id                                     AS hadm_id,
-    CAST(NULL AS DATE)                              AS date_id,
+    NULL::DATE                                      AS date_id,
     src.start_datetime                              AS start_datetime,
     src.end_datetime                                AS end_datetime,
     src.admission_type                              AS admission_type, -- current location
     src.admission_location                          AS admission_location, -- to hospital
     src.discharge_location                          AS discharge_location, -- from hospital
     CONCAT(
-        CAST(src.subject_id AS STRING), '|',
-        CAST(src.hadm_id AS STRING)
+        src.subject_id::VARCHAR, 
+        '|', 
+        src.hadm_id::VARCHAR
     )                                               AS source_value,
     --
-    src.unit_id                     AS unit_id,
-    src.load_table_id               AS load_table_id,
-    src.load_row_id                 AS load_row_id,
-    src.trace_id                    AS trace_id
+    src.unit_id                                     AS unit_id,
+    src.load_table_id                               AS load_table_id,
+    src.load_row_id                                 AS load_row_id,
+    src.trace_id                                    AS trace_id
 FROM
-    `@etl_project`.@etl_dataset.lk_admissions_clean src -- adm
+    mimiciv_etl.lk_admissions_clean src -- adm
 UNION ALL
 SELECT
-    md5(gen_random_uuid()::text)               AS visit_occurrence_id,
     src.subject_id                                  AS subject_id,
-    CAST(NULL AS INT64)                             AS hadm_id,
+    NULL::INTEGER                                   AS hadm_id,
     src.date_id                                     AS date_id,
     src.start_datetime                              AS start_datetime,
     src.end_datetime                                AS end_datetime,
@@ -208,17 +158,21 @@ SELECT
     src.admission_location                          AS admission_location, -- to hospital
     src.discharge_location                          AS discharge_location, -- from hospital
     CONCAT(
-        CAST(src.subject_id AS STRING), '|',
-        CAST(src.date_id AS STRING)
+        src.subject_id::VARCHAR, 
+        '|',
+        src.date_id::VARCHAR
     )                                               AS source_value,
     --
-    src.unit_id                     AS unit_id,
-    src.load_table_id               AS load_table_id,
-    src.load_row_id                 AS load_row_id,
-    src.trace_id                    AS trace_id
+    src.unit_id                                     AS unit_id,
+    src.load_table_id                               AS load_table_id,
+    src.load_row_id::TEXT                           AS load_row_id,
+    src.trace_id                                    AS trace_id
 FROM
-    `@etl_project`.@etl_dataset.lk_visit_no_hadm_dist src -- adm
+    mimiciv_etl.lk_visit_no_hadm_dist src -- adm
 ;
+
+ALTER TABLE mimiciv_etl.lk_visit_clean add visit_occurrence_id serial;
+DROP SEQUENCE mimiciv_etl.lk_visit_clean_visit_occurrence_id_seq CASCADE;
 
 -- -------------------------------------------------------------------
 -- lk_visit_detail_clean
@@ -227,27 +181,26 @@ FROM
 -- transfers with valid hadm_id
 -- -------------------------------------------------------------------
 
-CREATE TABLE `@etl_project`.@etl_dataset.lk_visit_detail_clean AS
+CREATE TABLE mimiciv_etl.lk_visit_detail_clean AS
 SELECT
-    md5(gen_random_uuid()::text)               AS visit_detail_id,
     src.subject_id                                  AS subject_id,
     src.hadm_id                                     AS hadm_id,
     src.date_id                                     AS date_id,
     src.start_datetime                              AS start_datetime,
     src.end_datetime                                AS end_datetime,  -- if null, populate with next start_datetime
     CONCAT(
-        CAST(src.subject_id AS STRING), '|',
-        COALESCE(CAST(src.hadm_id AS STRING), CAST(src.date_id AS STRING)), '|',
-        CAST(src.transfer_id AS STRING)
+        src.subject_id::VARCHAR, '|',
+        COALESCE(src.hadm_id::VARCHAR, src.date_id::VARCHAR), '|',
+        src.transfer_id::VARCHAR
     )                                               AS source_value,
     src.current_location                            AS current_location, -- find prev and next for adm and disch location
     --
-    src.unit_id                     AS unit_id,
-    src.load_table_id               AS load_table_id,
-    src.load_row_id                 AS load_row_id,
-    src.trace_id                    AS trace_id
+    src.unit_id                                     AS unit_id,
+    src.load_table_id                               AS load_table_id,
+    src.load_row_id                                 AS load_row_id,
+    src.trace_id                                    AS trace_id
 FROM
-    `@etl_project`.@etl_dataset.lk_transfers_clean src
+    mimiciv_etl.lk_transfers_clean src
 WHERE
     src.hadm_id IS NOT NULL -- some ER transfers are excluded because not all of them fit to additional single day visits
 ;
@@ -258,26 +211,25 @@ WHERE
 -- Rule 2.
 -- ER admissions
 -- -------------------------------------------------------------------
-INSERT INTO `@etl_project`.@etl_dataset.lk_visit_detail_clean
+INSERT INTO mimiciv_etl.lk_visit_detail_clean
 SELECT
-    md5(gen_random_uuid()::text)               AS visit_detail_id,
     src.subject_id                                  AS subject_id,
     src.hadm_id                                     AS hadm_id,
-    CAST(src.start_datetime AS DATE)                AS date_id,
+    src.start_datetime::DATE                        AS date_id,
     src.start_datetime                              AS start_datetime,
-    CAST(NULL AS DATETIME)                          AS end_datetime,  -- if null, populate with next start_datetime
+    NULL::TIMESTAMP                                 AS end_datetime,  -- if null, populate with next start_datetime
     CONCAT(
-        CAST(src.subject_id AS STRING), '|',
-        CAST(src.hadm_id AS STRING)
+        src.subject_id::VARCHAR, '|',
+        src.hadm_id::VARCHAR
     )                                               AS source_value,
     src.admission_type                              AS current_location, -- find prev and next for adm and disch location
     --
-    src.unit_id                     AS unit_id,
-    src.load_table_id               AS load_table_id,
-    src.load_row_id                 AS load_row_id,
-    src.trace_id                    AS trace_id
+    src.unit_id                                     AS unit_id,
+    src.load_table_id                               AS load_table_id,
+    src.load_row_id                                 AS load_row_id,
+    src.trace_id                                    AS trace_id
 FROM
-    `@etl_project`.@etl_dataset.lk_admissions_clean src
+    mimiciv_etl.lk_admissions_clean src
 WHERE
     src.is_er_admission
 ;
@@ -288,62 +240,39 @@ WHERE
 -- Rule 3.
 -- services
 -- -------------------------------------------------------------------
-INSERT INTO `@etl_project`.@etl_dataset.lk_visit_detail_clean
+INSERT INTO mimiciv_etl.lk_visit_detail_clean
 SELECT
-    md5(gen_random_uuid()::text)               AS visit_detail_id,
     src.subject_id                                  AS subject_id,
     src.hadm_id                                     AS hadm_id,
-    CAST(src.start_datetime AS DATE)                AS date_id,
+    src.start_datetime::DATE                        AS date_id,
     src.start_datetime                              AS start_datetime,
     src.end_datetime                                AS end_datetime,
     CONCAT(
-        CAST(src.subject_id AS STRING), '|',
-        CAST(src.hadm_id AS STRING), '|',
-        CAST(src.start_datetime AS STRING)
+        src.subject_id::VARCHAR, '|',
+        src.hadm_id::VARCHAR, '|',
+        src.start_datetime::VARCHAR
     )                                               AS source_value,
     src.curr_service                                AS current_location,
     --
-    src.unit_id                     AS unit_id,
-    src.load_table_id               AS load_table_id,
-    src.load_row_id                 AS load_row_id,
-    src.trace_id                    AS trace_id
+    src.unit_id                                     AS unit_id,
+    src.load_table_id                               AS load_table_id,
+    src.load_row_id                                 AS load_row_id,
+    src.trace_id                                    AS trace_id
 FROM
-    `@etl_project`.@etl_dataset.lk_services_clean src
+    mimiciv_etl.lk_services_clean src
 WHERE
     src.prev_service = src.lag_service -- ensure that the services sequence is still consistent after removing duplicates
 ;
 
--- -------------------------------------------------------------------
--- lk_visit_detail_clean
---
--- Rule 4.
--- waveforms
--- -------------------------------------------------------------------
-INSERT INTO `@etl_project`.@etl_dataset.lk_visit_detail_clean
-SELECT
-    md5(gen_random_uuid()::text)               AS visit_detail_id,
-    src.subject_id                                  AS subject_id,
-    src.hadm_id                                     AS hadm_id,
-    src.date_id                                     AS date_id,
-    src.start_datetime                              AS start_datetime,
-    src.end_datetime                                AS end_datetime,  -- if null, populate with next start_datetime
-    src.reference_id                                AS source_value,
-    src.current_location                            AS current_location, -- find prev and next for adm and disch location
-    --
-    src.unit_id                     AS unit_id,
-    src.load_table_id               AS load_table_id,
-    src.load_row_id                 AS load_row_id,
-    src.trace_id                    AS trace_id
-FROM
-    `@etl_project`.@etl_dataset.lk_visit_detail_waveform_dist src
-;
+ALTER TABLE mimiciv_etl.lk_visit_detail_clean add visit_detail_id serial;
+DROP SEQUENCE mimiciv_etl.lk_visit_detail_clean_visit_detail_id_seq CASCADE;
 
 -- -------------------------------------------------------------------
 -- lk_visit_detail_prev_next
 -- skip "mapped"
 -- -------------------------------------------------------------------
 
-CREATE TABLE `@etl_project`.@etl_dataset.lk_visit_detail_prev_next AS
+CREATE TABLE mimiciv_etl.lk_visit_detail_prev_next AS
 SELECT
     src.visit_detail_id                             AS visit_detail_id,
     src.subject_id                                  AS subject_id,
@@ -385,9 +314,9 @@ SELECT
     src.load_row_id                   AS load_row_id,
     src.trace_id                      AS trace_id
 FROM
-    `@etl_project`.@etl_dataset.lk_visit_detail_clean src
+    mimiciv_etl.lk_visit_detail_clean src
 LEFT JOIN
-    `@etl_project`.@etl_dataset.lk_visit_clean vis
+    mimiciv_etl.lk_visit_clean vis
         ON  src.subject_id = vis.subject_id
         AND (
             src.hadm_id = vis.hadm_id
@@ -409,20 +338,20 @@ LEFT JOIN
 -- then map it to standard Visit concepts
 -- -------------------------------------------------------------------
 
-CREATE TABLE `@etl_project`.@etl_dataset.lk_visit_concept AS
+CREATE TABLE mimiciv_etl.lk_visit_concept AS
 SELECT
     vc.concept_code     AS source_code,
     vc.concept_id       AS source_concept_id,
     vc2.concept_id      AS target_concept_id,
     vc.vocabulary_id    AS source_vocabulary_id
 FROM
-    `@etl_project`.@etl_dataset.voc_concept vc
+    mimiciv_voc.voc_concept vc
 LEFT JOIN
-    `@etl_project`.@etl_dataset.voc_concept_relationship vcr
+    mimiciv_voc.voc_concept_relationship vcr
         ON  vc.concept_id = vcr.concept_id_1
         and vcr.relationship_id = 'Maps to'
 LEFT JOIN
-    `@etl_project`.@etl_dataset.voc_concept vc2
+    mimiciv_voc.voc_concept vc2
         ON vc2.concept_id = vcr.concept_id_2
         AND vc2.standard_concept = 'S'
         AND vc2.invalid_reason IS NULL
